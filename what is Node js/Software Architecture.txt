@@ -1,0 +1,3 @@
+1. Monolith
+2. Modular Monolith
+3. Microservice

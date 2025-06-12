@@ -1,0 +1,24 @@
+Method 1 (Formal and Traditional)
+1. npm init -y
+2. create index.ts main file then install >npm i --save-dev typescript also >npm i --save-dev @types/node
+3. [Alternative] npx tsc --init (This generates tsconfig.json with default configuration values)
+4. [Alternative] >tsc index.js (this generates index.js of index.ts Note: Node only undestand JavaScript, then run >node index.js)
+5. We have to compile (Transpile) typescript then only node can execute JavaScript, 
+6. create dist named directory (distributable)
+7. Set "outDir" property value to "./dist/" from tsconfig.json and uncomment it 
+8. Now execute >tsc from src directory
+9. Then execute >node dist/index.js 
+10. Doing above two steps become a problem when we have frequent changes, set script in package.json to "start": "tsc && node dist/index.js" then execute >npm run start
+
+
+What we are doing here is we are compiling TypeScript into the JavaScript and running the same old JavaScript, however for type safety we are writting code in TypeScript to make sure every data type is type safe. this is what we want to achieve
+We do precompiling with tsc.
+
+Note: Node Js only understands JavaScript
+Note 💥: In a TypeScript project, typescript is typically added as a dev dependency because it is only needed during development for type checking and transpiling your code. It is not required at runtime.
+
+Method 2 (with Package ts-node)
+1. Install ts-node package >npm install --save-dev ts-node
+2. Set script as "start": "ts-node src/index.ts"
+3. Run >npm run start
+

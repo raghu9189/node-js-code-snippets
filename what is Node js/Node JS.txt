@@ -1,0 +1,113 @@
+What is Node.js ?
+Node.js is an Open source, Cross Platform, JavaScript RunTime Environment that allows us to use JavaScript beyond the browser yes on the server side
+Node.js is a single threaded non-blocking architecture which is scalable, fast and supported by a rich tool and libraries to execute JavaScript directly onto the server side
+
+What is the difference between Node JS and JavaScript ?
+JavaScript ia a scripting language used to create interactive features on website and Node JS is a tool that allows you to run JavaScript outside of a browser on on a server side.
+JavaScript is used in browsers to make websites interactive whereas you use Node Js which allows JavaScript to be used on server
+
+Working of Node JS ?
+Node Js works on a unique architecture that is very efficient.
+Requests can be two types
+1. Non-blocling (reading file, http request)
+2. Blocking (quering db request)
+Event Queue:
+All the requests are being placed in the event queue
+Event queue ensures that every request is processed one by one
+Event Loop:
+Event loop is the heart of the Node JS
+Node JS operates on a single thread that continuosly runs the event loop
+Event loop is a mechanism that picks up the requests one by one from event queue and decides whether a request is blocking or non-blocking.
+For Non-blocking I/O request the event loop handles it directly if the request is (ex. client ask for a file node js reads the file and send directly result back immediately)
+For Blocking request (ex. quering the database or complex computation) the event loop can not process it alone so it sends the request to libuv thread pool libuv is a library that manages this thread pool and handles heavy task in the background using multiple threads for example T1, T2, T3 and once the task is complete the thread sends the result back to event loop. this is how the nodejs functions in the background and the core purpose is achieving a high quality result through proper planning and execution
+
+Why is Node Js Single threaded ?
+Node Js is single threaded to keep things simple and efficent unlike traditional server that creates multiple threads to handle request, Node js uses just one single main thread
+Beacause this design reduces the complexity avoids problem like thread conflict or deadlock.
+How the single threaded architecture works so whenever requests comes in node js process all the request in this event queue like fetching data from memory the loop directly handles them and for more task the reading of a file or quering the database Node js passes these requests to thread pool.
+This approach makes node js super lightweight and scalable because it's single threaded it can handle thousands of simultaneous requests without extra overhead of managing thread and since JavaScript is natuarally single threaded this fits perfect for the javascript and it is easy to use developer familiar with JavaScript
+
+Why Node js so popular these days ?
+Node js has gained popularity due to its key advantage in modern web development it allows developer to use JavaScript for both client side and server side.
+
+What is Synchronous and Asynchronous Programming ?
+Synchronous programming: In synchronous programming tasks are executed one after another in a sequential manner and each task wait for the previous one to finish before
+Asynchronous Programming: 
+
+How does Node JS achieve Asynchronous Programming?
+Steps for Handling Asynchronous Operations:
+
+Callbacks: Functions passed as arguments and executed after an async task completes, ensuring non-blocking execution.
+Promises: Respresent the eventual result of async task, enabling chaining with .then(), .catch() for continued processing.
+Aync/Await: Simpifies async programming by pausing code execution at await unyil a promise resolves.
+
+What are promises in Node JS?
+Promises are used to handle asynchronous operations, providing a cleaner and more readable alternative to nested callabacks.
+
+states of a Promise:
+* Pending
+* Fulfilled
+* Rejected
+
+How it works: 
+* .then() // Handles success // for resolved 
+* .catch() // Handles errors // for rejected
+
+How can you use Aync/Await in Node JS? Provide
+
+* Async Function: An async function automatically returns a Promise and allows the use of await inside it.
+* Await Keyword: The await keyword pauses the execution of an async function until the promise resolves.
+* Purpose: Async/Await simplifies asynchronous code, making it look and behave like synchronous code.
+
+What is Package.json, and where is it used?
+
+* Central file in Node.JS Projects storing key details (name, version, description)
+* Tracks and manages dependencies (tools and libraries)
+* Guides Node.js on how to start the project and run scripts
+
+What is the purpose of module exports in node js?
+Module export in Node JS is a feature that allows developer to make code modular by exporting functions, objects or other data from one file to another so that it can be reused in an other file.
+* Ensures Modular Programming
+* Ensures code reusability
+* abstraction
+* Separation of concerns
+
+What is Event-Driven Programming?
+Event-Driven programming is programming paradigm where the flow of the program is determined by events like user actions, system notifications, or data availability.
+It Means writing code that reacts to specific actions or triggers.
+
+In Node JS this concept is core to its design it allows the creation of non-blocking asynchronous programs meaning tasks don't have to wait for another to finish.
+Events and eventEmmitters are the two parts of this event driven programming 
+Events are signals like alerts, while EventEmmiters is like the manager that listens for these events and triggers specific actions.
+EventEmmiters --> Events --> Event Loop --> Event Handlers
+
+What Is the Role of the Events Module,
+and How Can You Handle Events in Node JS?
+The Events Module in Node JS is essential for creating event-driven programming. It allows objects to trigger events and manage those events asynchronously, ensuring that Node JS operates in a non-blocking, efficient way.
+Handling Events in Node JS:
+> Creating an Event Emitter: Enables custom objects to emit events and register listeners.
+> Emitting Events: Triggers a specific event using the .emit() method.
+> Creating an Event Emitter: Triggers a specific event using the .emit() method. Listening to Events: Attaches listeners using .on() for repeated triggers or .once() for a single occurrence.
+
+What is the role of Buffer class in Node JS?
+In node js buffer class is the built in object used to handle raw binary data.
+Buffer represents the fixed sized chunk of memory which contains raw binary data.
+it is very useful when it comes to 
+* Binary data handling 
+* Stream integration
+* Encoding support
+* Fixed size allocation
+
+Explain the Node JS Web Application Architecture ?
+> Client: Sends requests to the server through a browser or client tool.
+> Server: Processes client requests and sends back results, bridging the front end and database.
+> Event Queue: Stores incoming requests in sequence for the event loop to process.
+> Event Loop: Manages non-blocking requests and delegates blocking tasks to the thread pool.
+> Thread Pool: Processes blocking tasks separately, ensuring the event loop remains free.
+> External Resources: Includes databases and external systems needed for specific tasks.
+
+What Are the Types of Streams Available in Node JS?
+> Readable Stream: Used for reading data sequentially, like reading files with fs.createReadStream().
+> Writable Stream: Used for writing data, such as writing files with fs.createWriteStream().
+> Duplex Stream: Can read and write data simultaneously, e.g., net.Socket for TCP connections.
+> Transform Stream: Modifies data while reading or writing, like compressing files

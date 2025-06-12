@@ -1,0 +1,7 @@
+what is buffer in node.js
+what is cluster module in node.js
+what are worker threads
+what is index in sql
+what is trigger in sql
+what is stored procedure
+where did you learn all these skills? from your real time work or ?
