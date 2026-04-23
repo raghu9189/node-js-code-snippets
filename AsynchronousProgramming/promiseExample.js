@@ -1,7 +1,16 @@
-const fs = require('fs').promises;
+const myPromise = new Promise((resolve, reject)=>{
+    const success = true; // Change to false to test rejection
+    if (success) {
+        resolve("Promise resolved successfully!");
+    } else {
+        reject("Promise rejected.");
+    }
+})
 
-fs.readFile('studentss.txt', {encoding:'utf8'})
-    .then((data)=>{console.log("File content: ", data); // Handle Success
+myPromise
+    .then((message)=>{
+        console.log(message);
     })
-    .catch((err)=>{console.log("Error reading file: ", err); // Handle error
-    })
+    .catch((error)=>{
+        console.error(error);
+    });

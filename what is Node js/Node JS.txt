@@ -32,7 +32,7 @@ Node js has gained popularity due to its key advantage in modern web development
 
 What is Synchronous and Asynchronous Programming ?
 Synchronous programming: In synchronous programming tasks are executed one after another in a sequential manner and each task wait for the previous one to finish before
-Asynchronous Programming: 
+Asynchronous Programming: Asynchronous programming allows tasks to run without blocking the main flow. The program doesn’t wait — it continues execution while the task completes in the background.
 
 How does Node JS achieve Asynchronous Programming?
 Steps for Handling Asynchronous Operations:
