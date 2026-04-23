@@ -25,3 +25,7 @@ const removeInterval = setInterval(function(user){
 setTimeout(function(message){
     console.log(message);
 }, 2000, ["UNEXPECTED EXECUTION", "Arg2"]); // args array
+
+
+// nextTick()
+process.nextTick(function(user){console.log("Next Tick "+user)}, "Raghu");
